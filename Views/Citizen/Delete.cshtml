@@ -1,0 +1,28 @@
+﻿@model EvironmentalMunicipality.Models.Citizen
+
+@{
+    ViewData["Title"] = "Delete Citizen";
+}
+
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+    <h3 class="text-danger">Are you sure you want to delete this?</h3>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.FullName)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.FullName)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Email)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Email)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.RegistrationDate)</dt>
+        <dd class="col-sm-9">@Model.RegistrationDate.ToString("d")</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CitizenID" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

@@ -1,0 +1,39 @@
+﻿@model ServiceRequest
+
+<h2>Create Service Request</h2>
+
+<form asp-action="Create">
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        <label asp-for="CitizenID" class="form-label">Citizen *</label>
+        <select asp-for="CitizenID" class="form-control" required
+                asp-items="@(new SelectList(ViewBag.Citizens, "CitizenID", "FullName"))">
+            <option value="">-- Select Citizen --</option>
+        </select>
+        <span asp-validation-for="CitizenID" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ServiceType" class="form-label">Service Type *</label>
+        <input asp-for="ServiceType" class="form-control" required />
+        <span asp-validation-for="ServiceType" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Status" class="form-label">Status *</label>
+        <textarea asp-for="Status" class="form-control" rows="4" required></textarea>
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+
+    <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary">Create Report</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

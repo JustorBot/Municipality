@@ -1,0 +1,35 @@
+﻿@model EvironmentalMunicipality.Models.Citizen
+
+@{
+    ViewData["Title"] = "Citizen Details";
+}
+
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.FullName)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.FullName)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Address)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Address)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.PhoneNumber)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.PhoneNumber)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Email)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Email)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.DateOfBirth)</dt>
+        <dd class="col-sm-9">@(Model.DateOfBirth?.ToString("d") ?? "Not specified")</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.RegistrationDate)</dt>
+        <dd class="col-sm-9">@Model.RegistrationDate.ToString("d")</dd>
+    </dl>
+
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.CitizenID" class="btn btn-warning">Edit</a>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>
